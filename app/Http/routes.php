@@ -14,3 +14,25 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('main', function () {
+    return view('main');
+});
+
+Route::get('askquestion','AskQuestion@showform');
+
+Route::post('submitquestion','AskQuestion@savequestion');
+
+Route::get('saveprocess', function(){
+	return view('questions.saveprocess');
+})->middleware('auth');
+
+Route::get('category/{name}', 'SearchController@showCategoryQuestion');
+
+Route::get('question/{id}','QuestionController@showDetail');
+
+Route::get('search','SearchController@showSearchResult');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

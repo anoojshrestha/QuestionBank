@@ -11,6 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        DB::table('questions')->insert([
+        	'category' => 'Computer Programming',
+	        'title' => 'How to install php?',
+	        'description' => 'I am having a problem while installing php in windows 8. Please help me.',
+        	]);
     }
 }
